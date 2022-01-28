@@ -78,9 +78,15 @@ public class AlarmService extends Service {
             else if (is_wechat_running == -1){  // 首次启动
                 start_wechat();
             }
+            else {
+                Toast toast=Toast.makeText(getApplicationContext(), "未处理情况", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
         else{ // 如果在前台运行的不是微信，则直接返回桌面。
             backToDesktop();
+            Toast toast=Toast.makeText(getApplicationContext(), "禁用其他程序", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
         //通过AlarmManager定时启动广播
